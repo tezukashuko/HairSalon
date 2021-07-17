@@ -337,8 +337,10 @@
   });
 
   $('.appointment_date').datepicker({
-	  'format': 'm/d/yyyy',
-	  'autoclose': true
+	  'format': 'dd/mm/yyyy',
+	  'autoclose': true,
+	  'daysOfWeekDisabled':'0,6',
+	  'datesDisabled':'20/07/2021'
 	});
 
 	$('.appointment_time').timepicker();
