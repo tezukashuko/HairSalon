@@ -12850,3 +12850,6 @@ textarea.form-control {
 .datepicker-days .day:not(.disabled){
   font-weight: 500;
 }
+#service{
+  display: inline-block;
+}
