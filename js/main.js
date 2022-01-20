@@ -332,7 +332,7 @@ AOS.init({
 					}
 				);
 
-				if (navToggler.is(":visible")) {
+				if (navToggler.is(":visible") && !navToggler.hasClass("collapsed")) {
 					navToggler.click();
 				}
 			}
