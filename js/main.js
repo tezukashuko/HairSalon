@@ -374,10 +374,20 @@ AOS.init({
 		fixedContentPos: false,
 	});
 
+	let today = new Date()
+	let next7days = new Date()
+	next7days.setDate(today.getDate()+7)
+	console.log(next7days);
+	console.log(next7days);
 	$(".appointment_date").datepicker({
 		format: "m/d/yyyy",
+		//defaultViewDate:new Date().toISOString().slice(0, 10),
+		startDate: today.toLocaleDateString(),
+		endDate: next7days.toLocaleDateString(),
 		autoclose: true,
 	});
+	$(".appointment_date").datepicker('setDate', new Date().toLocaleDateString())
+
 
 	$(".appointment_time").timepicker();
 })(jQuery);
