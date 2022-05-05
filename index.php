@@ -5,7 +5,7 @@ include __DIR__ . "/included/header.php" ?>
 
 <section class="hero-wrap js-fullheight" id="index" style="background-image: url(images/bg-2.jpg);   background-size: cover;" data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
-	<input type="hidden" value="<?php echo isset($_SESSION['username_barbershop_Xw211qAAsq4'])?1:0;?>" >
+	<input type="hidden" value="<?php echo isset($_SESSION['username_barbershop_Xw211qAAsq4']) ? 1 : 0; ?>">
 
 	<div class="container">
 		<div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
@@ -183,7 +183,7 @@ include __DIR__ . "/included/header.php" ?>
 											<!-- <small id="emailHelp" class="form-text text-muted ml-2">Email first if you have already booked before</small> -->
 										</div>
 									</div>
-								
+
 									<div class="col-sm-6">
 										<div class="form-group">
 											<input type="text" name="phone" class="form-control" id="appointment_phone" placeholder="Phone">
@@ -302,27 +302,7 @@ include __DIR__ . "/included/header.php" ?>
 							<span class="position">Nail Master</span>
 						</a>
 					</div>
-					<!-- <div class="item">
-						<a href="#" class="team text-center">
-							<div class="img" style="background-image: url(images/stylist-3.jpg);"></div>
-							<h2>Cloe Meyer</h2>
-							<span class="position">Director</span>
-						</a>
-					</div>
-					<div class="item">
-						<a href="#" class="team text-center">
-							<div class="img" style="background-image: url(images/stylist-4.jpg);"></div>
-							<h2>Rachel Clinton</h2>
-							<span class="position">Hair Stylist</span>
-						</a>
-					</div>
-					<div class="item">
-						<a href="#" class="team text-center">
-							<div class="img" style="background-image: url(images/stylist-5.jpg);"></div>
-							<h2>Dave Buff</h2>
-							<span class="position">Barber</span>
-						</a>
-					</div> -->
+			
 				</div>
 			</div>
 		</div>

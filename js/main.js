@@ -1,7 +1,4 @@
-AOS.init({
-	duration: 800,
-	easing: "slide",
-});
+// 
 (function ($) {
 	"use strict";
 
@@ -141,76 +138,33 @@ AOS.init({
 	};
 	carousel();
 
-	$("nav .dropdown").hover(
-		function () {
-			var $this = $(this);
-			// 	 timer;
-			// clearTimeout(timer);
-			$this.addClass("show");
-			$this.find("> a").attr("aria-expanded", true);
-			// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
-			$this.find(".dropdown-menu").addClass("show");
-		},
-		function () {
-			var $this = $(this);
-			// timer;
-			// timer = setTimeout(function(){
-			$this.removeClass("show");
-			$this.find("> a").attr("aria-expanded", false);
-			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
-			$this.find(".dropdown-menu").removeClass("show");
-			// }, 100);
-		}
-	);
+	// $("nav .dropdown").hover(
+	// 	function () {
+	// 		var $this = $(this);
+	// 		// 	 timer;
+	// 		// clearTimeout(timer);
+	// 		$this.addClass("show");
+	// 		$this.find("> a").attr("aria-expanded", true);
+	// 		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
+	// 		$this.find(".dropdown-menu").addClass("show");
+	// 	},
+	// 	function () {
+	// 		var $this = $(this);
+	// 		// timer;
+	// 		// timer = setTimeout(function(){
+	// 		$this.removeClass("show");
+	// 		$this.find("> a").attr("aria-expanded", false);
+	// 		// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+	// 		$this.find(".dropdown-menu").removeClass("show");
+	// 		// }, 100);
+	// 	}
+	// );
 
 	$("#dropdown04").on("show.bs.dropdown", function () {
 		console.log("show");
 	});
 
-	// scroll
-	// var scrollWindow = function () {
-	// 	$(window).scroll(function () {
-	// 		var $w = $(this),
-	// 			st = $w.scrollTop(),
-	// 			navbar = $(".ftco_navbar"),
-	// 			sd = $(".js-scroll-wrap");
-	// 		if (st > 150) {
-	// 			if (!navbar.hasClass("scrolled")) {
-	// 				navbar.addClass("scrolled");
-	// 			}
-	// 		}
-	// 		if (st < 150) {
-	// 			if (navbar.hasClass("scrolled")) {
-	// 				navbar.removeClass("scrolled sleep");
-	// 			}
-	// 			if ($(window).width() < 992) {
-	// 				navbar.addClass("scrolled");
-	// 				navbar.addClass("sleep");
-	// 			}
-	// 		}
-	// 		if (st > 350) {
-	// 			if (!navbar.hasClass("awake")) {
-	// 				navbar.addClass("awake");
-	// 			}
-	// 			if (sd.length > 0) {
-	// 				console.log(123);
-	// 				sd.addClass("sleep");
-	// 			}
-	// 		}
-	// 		if (st < 350) {
-	// 			if (navbar.hasClass("awake")) {
-	// 				navbar.removeClass("awake");
-	// 				navbar.addClass("sleep");
-	// 			}
-	// 			if (sd.length > 0) {
-	// 				sd.removeClass("sleep");
-	// 			}
-	// 		}
-	// 		if ($(window).width() < 992) {
-	// 		}
-	// 	});
-	// };
-	// scrollWindow();
+
 	var scrollWindow = function() {
 		$(window).scroll(function(){
 			var $w = $(this),
@@ -288,35 +242,7 @@ AOS.init({
 		},
 	};
 
-	var counter = function () {
-		$(
-			"#section-counter, .hero-wrap, .ftco-counter, .ftco-volunteer"
-		).waypoint(
-			function (direction) {
-				if (
-					direction === "down" &&
-					!$(this.element).hasClass("ftco-animated")
-				) {
-					var comma_separator_number_step =
-						$.animateNumber.numberStepFactories.separator(",");
-					$(".number").each(function () {
-						var $this = $(this),
-							num = $this.data("number");
-						console.log(num);
-						$this.animateNumber(
-							{
-								number: num,
-								numberStep: comma_separator_number_step,
-							},
-							7000
-						);
-					});
-				}
-			},
-			{ offset: "95%" }
-		);
-	};
-	counter();
+
 
 	var contentWayPoint = function () {
 		var i = 0;
@@ -361,37 +287,37 @@ AOS.init({
 	contentWayPoint();
 
 	// navigation
-	var OnePageNav = function () {
-		$(
-			".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#'], p a[href^='#']"
-		).on("click", function (e) {
-			e.preventDefault();
-			console.log(1);
-			var hash = this.hash,
-				navToggler = $(".navbar-toggler");
-			$("html, body").animate(
-				{
-					scrollTop: $(hash).offset().top,
-				},
-				700,
-				"easeInOutExpo",
-				function () {
-					window.location.hash = hash;
-				}
-			);
+	// var OnePageNav = function () {
+	// 	$(
+	// 		".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#'], p a[href^='#']"
+	// 	).on("click", function (e) {
+	// 		e.preventDefault();
+	// 		console.log(1);
+	// 		var hash = this.hash,
+	// 			navToggler = $(".navbar-toggler");
+	// 		$("html, body").animate(
+	// 			{
+	// 				scrollTop: $(hash).offset().top,
+	// 			},
+	// 			700,
+	// 			"easeInOutExpo",
+	// 			function () {
+	// 				window.location.hash = hash;
+	// 			}
+	// 		);
 			
-			if (
-				navToggler.is(":visible") &&
-				!navToggler.hasClass("collapsed")
-			) {
-				navToggler.click();
-			}
-		});
-		$("body").on("activate.bs.scrollspy", function () {
-			console.log("nice");
-		});
-	};
-	OnePageNav();
+	// 		if (
+	// 			navToggler.is(":visible") &&
+	// 			!navToggler.hasClass("collapsed")
+	// 		) {
+	// 			navToggler.click();
+	// 		}
+	// 	});
+	// 	$("body").on("activate.bs.scrollspy", function () {
+	// 		console.log("nice");
+	// 	});
+	// };
+	// OnePageNav();
 
 	// magnific popup
 	$(".image-popup").magnificPopup({
