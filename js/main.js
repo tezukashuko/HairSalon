@@ -165,47 +165,47 @@
 	});
 
 
-	var scrollWindow = function() {
-		$(window).scroll(function(){
+	var scrollWindow = function () {
+		$(window).scroll(function () {
 			var $w = $(this),
-					st = $w.scrollTop(),
-					navbar = $('.ftco_navbar'),
-					sd = $('.js-scroll-wrap');
+				st = $w.scrollTop(),
+				navbar = $('.ftco_navbar'),
+				sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
-				if ( !navbar.hasClass('scrolled') ) {
+				if (!navbar.hasClass('scrolled')) {
 					navbar.addClass('scrolled');
 					navbar.removeClass("navbar-expand")
 					navbar.addClass("navbar-expand-lg")
 				}
-			} 
+			}
 			if (st < 150) {
-				if ( navbar.hasClass('scrolled') ) {
+				if (navbar.hasClass('scrolled')) {
 					navbar.removeClass('scrolled sleep');
 					navbar.addClass('navbar-expand')
 					navbar.removeClass("navbar-expand-lg")
 					let nav_bar = $("#ftco-nav")
-					if (nav_bar.hasClass("show")){
+					if (nav_bar.hasClass("show")) {
 						nav_bar.removeClass("show");
 					}
 
 				}
-			} 
-			if ( st > 350 ) {
-				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+			}
+			if (st > 350) {
+				if (!navbar.hasClass('awake')) {
+					navbar.addClass('awake');
 				}
-				
-				if(sd.length > 0) {
+
+				if (sd.length > 0) {
 					sd.addClass('sleep');
 				}
 			}
-			if ( st < 350 ) {
-				if ( navbar.hasClass('awake') ) {
+			if (st < 350) {
+				if (navbar.hasClass('awake')) {
 					navbar.removeClass('awake');
 					navbar.addClass('sleep');
 				}
-				if(sd.length > 0) {
+				if (sd.length > 0) {
 					sd.removeClass('sleep');
 
 				}
@@ -286,6 +286,40 @@
 	};
 	contentWayPoint();
 
+
+	$(" #ftco-nav ul li a[href^='#'], p a[href^='#']")
+		// Remove links that don't actually link to anything
+		.click(function (event) {
+			// On-page links
+			if (
+				location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+				&&
+				location.hostname == this.hostname
+			) {
+				// Figure out element to scroll to
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+				// Does a scroll target exist?
+				if (target.length) {
+					// Only prevent default if animation is actually gonna happen
+					event.preventDefault();
+					$('html, body').animate({
+						scrollTop: target.offset().top
+					}, 500, function () {
+						// Callback after animation
+						// Must change focus!
+						var $target = $(target);
+						$target.focus();
+						if ($target.is(":focus")) { // Checking if the target was focused
+							return false;
+						} else {
+							$target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+							$target.focus(); // Set focus again
+						};
+					});
+				}
+			}
+		});
 	// navigation
 	// var OnePageNav = function () {
 	// 	$(
@@ -305,7 +339,7 @@
 	// 				window.location.hash = hash;
 	// 			}
 	// 		);
-			
+
 	// 		if (
 	// 			navToggler.is(":visible") &&
 	// 			!navToggler.hasClass("collapsed")
@@ -403,8 +437,8 @@ function getDateTimeByArtist(selectedDateOptions = null) {
 	if (selectedDateOptions != null) {
 		querystring += "&selectedDate=" + document.querySelector("#step-3 select[name=date]").options[selectedDateOptions].innerText
 	}
-	if (document.querySelector("input").value == 1){
-		querystring+="&admin="
+	if (document.querySelector("input").value == 1) {
+		querystring += "&admin="
 	}
 	let xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("get", "included/query.php" + querystring);
